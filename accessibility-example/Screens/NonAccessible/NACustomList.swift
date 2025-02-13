@@ -1,5 +1,5 @@
 //
-//  ACustomList.swift
+//  NACustomList.swift
 //  accessibility-example
 //
 //  Created by Matus Klasovity on 13/02/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ACustomList: View {
+struct NACustomList: View {
 
     @Observable
     final class Email: Identifiable {
@@ -29,13 +29,11 @@ struct ACustomList: View {
         Email(id: UUID(), subject: "Schôdzka", body: "Máme schôdzku zajtra", isRead: false),
         Email(id: UUID(), subject: "Párty", body: "Nevynechaj párty", isRead: true),
         Email(id: UUID(), subject: "Nová práca", body: "Máme pre teba novú prácu", isRead: true),
-        Email(id: UUID(), subject: "Dovolenka", body: "Poďme na dovolenku", isRead: false),
+        Email(id: UUID(), subject: "Dovolenka", body: "Choďme na dovolenku", isRead: false),
         Email(id: UUID(), subject: "Reklama", body: "Kúpte si túto super vec", isRead: true),
         Email(id: UUID(), subject: "Víťazstvo", body: "Vyhrali sme", isRead: false),
         Email(id: UUID(), subject: "Výhra", body: "Vyhrávate 1000€", isRead: false),
     ]
-
-    @Namespace var namespace
 
 
     var body: some View {
@@ -43,39 +41,26 @@ struct ACustomList: View {
             VStack {
                 ForEach(emails) { email in
                     emailView(email: email)
-                        .accessibilityRotorEntry(id: email.id, in: namespace)
 
                     Divider()
-                }
-            }
-            .accessibilityElement(children: .contain)
-            .accessibilityRotor("Neprečítané E-maily") {
-                ForEach(emails) { email in
-                    if !email.isRead {
-                        AccessibilityRotorEntry(LocalizedStringKey(stringLiteral: email.subject), id: email.id, in: namespace)
-                    }
                 }
             }
         }
     }
 }
 
-extension ACustomList {
+extension NACustomList {
 
     func emailView(email: Email) -> some View {
         HStack {
             Image(systemName: email.isRead ? "envelope.open.fill" : "envelope.fill")
                 .foregroundColor(email.isRead ? .gray : .blue)
-                .accessibilityLabel(email.isRead ? "Prečítaný email" : "Neprečítaný email")
-
             VStack(alignment: .leading) {
                 Text(email.subject)
                     .font(.headline)
-                    .accessibilityLabel("Predmet: \(email.subject)")
 
                 Text(email.body)
                     .font(.subheadline)
-                    .accessibilityLabel("Telo správy: \(email.body)")
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -103,7 +88,6 @@ extension ACustomList {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .accessibilityElement(children: .combine)
     }
 
 }
@@ -112,3 +96,4 @@ extension ACustomList {
 #Preview {
     ACustomList()
 }
+

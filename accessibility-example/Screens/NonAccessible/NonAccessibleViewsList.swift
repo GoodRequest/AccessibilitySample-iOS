@@ -41,6 +41,12 @@ struct NonAccessibleViewsList: View {
                 } label: {
                     Text("Rating")
                 }
+
+                NavigationLink {
+                    NACustomList()
+                } label: {
+                    Text("Vlastný zoznam")
+                }
             }
             .navigationTitle("Neprístupné obrazovky")
         }
