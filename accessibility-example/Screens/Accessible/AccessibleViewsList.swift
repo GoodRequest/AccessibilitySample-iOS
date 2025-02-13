@@ -61,6 +61,12 @@ struct AccessibleViewsList: View {
                 } label: {
                     Text("Rating")
                 }
+
+                NavigationLink {
+                    AHeadersExampleView()
+                } label: {
+                    Text("Preskakovanie textu po nadpisoch")
+                }
             }
             .searchable(text: $searchText)
             .refreshable {
