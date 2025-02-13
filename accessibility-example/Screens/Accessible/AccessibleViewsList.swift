@@ -79,6 +79,12 @@ struct AccessibleViewsList: View {
                 } label: {
                     Text("Kontajnery")
                 }
+
+                NavigationLink {
+                    ACustomList()
+                } label: {
+                    Text("Vlastný zoznam")
+                }
             }
             .searchable(text: $searchText)
             .refreshable {
