@@ -67,6 +67,12 @@ struct AccessibleViewsList: View {
                 } label: {
                     Text("Preskakovanie textu po nadpisoch")
                 }
+
+                NavigationLink {
+                    ASortPriorityView()
+                } label: {
+                    Text("Zoradenie a priorita")
+                }
             }
             .searchable(text: $searchText)
             .refreshable {
