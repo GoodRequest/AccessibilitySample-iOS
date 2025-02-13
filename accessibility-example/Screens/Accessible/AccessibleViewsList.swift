@@ -73,6 +73,12 @@ struct AccessibleViewsList: View {
                 } label: {
                     Text("Zoradenie a priorita")
                 }
+
+                NavigationLink {
+                    AContainersView()
+                } label: {
+                    Text("Kontajnery")
+                }
             }
             .searchable(text: $searchText)
             .refreshable {

@@ -41,3 +41,7 @@ struct ASortPriorityView: View {
     }
 
 }
+
+#Preview {
+    ASortPriorityView()
+}
