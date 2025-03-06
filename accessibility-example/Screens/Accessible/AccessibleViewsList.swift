@@ -85,6 +85,12 @@ struct AccessibleViewsList: View {
                 } label: {
                     Text("Vlastný zoznam")
                 }
+
+                NavigationLink {
+                    ACustomSegmentedControl()
+                } label: {
+                    Text("Segmented control")
+                }
             }
             .searchable(text: $searchText)
             .refreshable {

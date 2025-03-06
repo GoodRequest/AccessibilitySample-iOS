@@ -37,3 +37,7 @@ struct ARatingView: View {
     }
 
 }
+
+#Preview {
+    ARatingView()
+}
